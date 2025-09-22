@@ -34,7 +34,7 @@ jobs:
 
       # 5. Build del proyecto si aplica
       - name: Build
-        run: pnpm run build --if-present
+        run: npm run build --if-present
 
       # 6. Instalar surge globalmente con pnpm
       - name: Install Surge
