@@ -34,7 +34,7 @@ const Image = ({ src, width, height, index }: ImageProps) => {
           document.body
         )}
       <button
-        className="button"
+        className="border-none border-radius-[5px] cursor-pointer"
         data-blendy-from={`example-${index}`}
         onClick={() => {
           setShowModal(true)

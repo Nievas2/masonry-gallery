@@ -21,8 +21,8 @@ const images = [
 
 function App() {
   return (
-    <main className="bg-slate-900 p-4 min-h-screen text-white">
-      <h1>Vite + React</h1>
+    <main className="flex flex-col gap-8 bg-slate-900 p-4 min-h-screen text-white">
+      <h1 className="text-2xl">Galeria hecha con masonry y blendy</h1>
       <Masonry
         columns={{ 320: 1, 540: 2, 768: 3, 1024: 5 }}
         gap={16}
