@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,26 +16,27 @@ jobs:
       # 1. Clonar el repositorio
       - uses: actions/checkout@v3
 
-      # 2. Instalar la versión de Node.js
+      # 2. Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm" # caching de pnpm
 
-      # 3. Instalar pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
+      # 3. Configurar pnpm (acción oficial)
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
-      # 4. Instalar dependencias usando pnpm
+      # 4. Instalar dependencias con pnpm
       - name: Install dependencies
         run: pnpm install
 
-      # 5. Build del proyecto (si aplica)
+      # 5. Build del proyecto si aplica
       - name: Build
         run: pnpm run build --if-present
 
-      # 6. Instalar surge globalmente
+      # 6. Instalar surge globalmente con pnpm
       - name: Install Surge
         run: pnpm add --global surge
 
